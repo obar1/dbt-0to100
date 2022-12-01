@@ -4,7 +4,7 @@ seeds:
   - name: apps
     config:
       quote_columns: true
-      schema: test_raw
+      schema: "{{ 'test_raw' if target.schema == 'qa' else 'gf_raw' }}"
       column_types:
         id: varchar
         num: integer
