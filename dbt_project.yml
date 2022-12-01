@@ -43,3 +43,4 @@ vars:
   domains_filter_list: ''
   limit_rows: ''
   source_for_gf_raw: 'gf_raw'
+  source_for_test_data: 'test_data'

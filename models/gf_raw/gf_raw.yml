@@ -2,10 +2,10 @@ version: 2
 sources:
   - name: gf_raw
     schema: |
-      {%- if var("source_for_gf_raw") | trim | lower == "seeds"  -%} test_data
-      {%- elif target.name == "qa"  -%} test_data
-      {%- elif target.name == "prod"  -%} gf_raw
-      {%- else -%} _{{ var('source_for_gf_raw')}}_
+      {%- if var("source_for_gf_raw") | trim | lower == "test_data" -%} {{ target.schema + '_' + var("source_for_test_data") }}
+      {%- elif target.name == "qa" -%}  {{ target.schema + '_' + var("source_for_test_data")  }}
+      {%- elif target.name == "prod" -%}  {{ target.schema + '_' + var("source_for_gf_raw") }}
+      {%- else -%} {{ target.schema + '_' + var("source_for_gf_raw") }}
       {%- endif -%}
     tables:
       - name: apps
