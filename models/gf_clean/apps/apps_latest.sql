@@ -1,5 +1,4 @@
 {{ config(materialized="table", schema="clean") }}
 
-select upper(id) as id, 
-num
+select * 
 FROM {{ source('gf_raw', 'apps')}}
