@@ -2,7 +2,7 @@ version: 2
 sources:
   - name: gf_raw
     schema: |
-      {%- if var("source_for_gf_raw") | trim | upper == "seeds"  -%} test_data
+      {%- if var("source_for_gf_raw") | trim | lower == "seeds"  -%} test_data
       {%- elif target.name == "qa"  -%} test_data
       {%- elif target.name == "prod"  -%} gf_raw
       {%- else -%} _{{ var('source_for_gf_raw')}}_
