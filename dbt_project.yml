@@ -42,4 +42,4 @@ vars:
   companies_filter_list: ''
   domains_filter_list: ''
   limit_rows: ''
-  use_seeds_for_gf_raw: 'FALSE'
+  source_for_gf_raw: 'gf_raw'
