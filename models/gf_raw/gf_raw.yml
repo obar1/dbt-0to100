@@ -2,8 +2,10 @@ version: 2
 sources:
   - name: gf_raw
     schema: |
-      {%- if target.name == "qa"  -%} test_raw
-      {%- elif target.name == "prod"  -%} gf_raw
+      {%- if target.name == "prod"  -%} gf_raw
+      {%- elif target.name == "qa"  -%} test_data
+      {%- elif use_seeds_for_gf_raw == "TRUE" | as_bool -%} test_data
+      {%- else -%} gf_raw
       {%- endif -%}
     tables:
       - name: apps
