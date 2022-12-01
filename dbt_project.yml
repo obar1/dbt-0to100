@@ -2,8 +2,8 @@
 # Name your project! Project names should contain only lowercase characters
 # and underscores. A good package name should reflect your organization's
 # name or the intended use of these models
-name: 'my_new_project'
-version: '1.0.0'
+name: 'gf_dwh_obar1'
+version: '2.0.0'
 config-version: 2
 
 # This setting configures which "profile" dbt uses for this project.
@@ -32,12 +32,13 @@ clean-targets:         # directories to be removed by `dbt clean`
 # as tables. These settings can be overridden in the individual model files
 # using the `{{ config(...) }}` macro.
 models:
-  jaffle_shop:
-    marts:
-      core:
-        +materialized: table
-    staging:
-      jaffle_shop:
-        +materialized: view
-      stripe:
-        +materialized: view
+  gf_dwh:
+    # Applies to all files under models/
+    +materialized: view
+
+
+# Define variables here
+vars:
+  companies_filter_list: ''
+  domains_filter_list: ''
+  limit_rows: ''
