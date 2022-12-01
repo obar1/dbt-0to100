@@ -1,4 +1,4 @@
-CREATE TABLE raw.public.apps AS
+CREATE TABLE analytics.gf_raw.apps AS
 SELECT  cast(NULL AS varchar) AS id,
         cast(NULL AS integer) AS num
 UNION ALL
