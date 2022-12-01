@@ -4,7 +4,7 @@ seeds:
   - name: expected_dbk_000
     config:
       quote_columns: true
-      schema: test_expected
+      schema: test_data
       column_types:
         id: varchar
         num: integer
