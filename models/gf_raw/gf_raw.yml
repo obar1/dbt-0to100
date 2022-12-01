@@ -5,7 +5,7 @@ sources:
       {%- if var('use_seeds_for_gf_raw') | trim | upper == "TRUE"  -%} test_data
       {%- elif target.name == "qa"  -%} test_data
       {%- elif target.name == "prod"  -%} gf_raw
-      {%- else -%} _ERROR_
+      {%- else -%} _ERROR_{{ var('use_seeds_for_gf_raw')}}_
       {%- endif -%}
     tables:
       - name: apps
