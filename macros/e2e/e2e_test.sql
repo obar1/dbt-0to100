@@ -1,5 +1,5 @@
 {% macro e2e_test(table_name) %} 
-    {% if target.name != 'prod' %}
+    {% if target.name != 'gf' %}
     
         WITH test AS ( 
             {% set expected_cases %}
