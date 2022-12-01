@@ -1,6 +1,6 @@
 version: 2
 sources:
   - name: gf_raw
-    schema: "{{ if target.schema == 'qa' then 'test_data' else 'prod_data' }}"
+    schema: "{{ if target.schema == 'qa' then 'test_data' else 'gf_raw' }}"
     tables:
       - name: apps
