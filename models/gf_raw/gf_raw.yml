@@ -2,10 +2,10 @@ version: 2
 sources:
   - name: gf_raw
     schema: |
-      {%- if var('use_seeds_for_gf_raw') | trim | upper == "TRUE"  -%} test_data
+      {%- if env_var('use_seeds_for_gf_raw') | trim | upper == "TRUE"  -%} test_data
       {%- elif target.name == "qa"  -%} test_data
       {%- elif target.name == "prod"  -%} gf_raw
-      {%- else -%} _ERROR_{{ var('use_seeds_for_gf_raw')}}_
+      {%- else -%} _ERROR_{{ env_var('use_seeds_for_gf_raw')}}_
       {%- endif -%}
     tables:
       - name: apps
