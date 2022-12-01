@@ -1,0 +1,10 @@
+version: 2
+
+seeds:
+  - name: apps
+    config:
+      quote_columns: true
+      schema: test_raw
+      column_types:
+        id: varchar
+        num: integer

@@ -2,8 +2,7 @@ version: 2
 sources:
   - name: gf_raw
     schema: |
-      {%- if  target.name == "dev" -%} gf_raw
-      {%- elif target.name == "qa"  -%} test_data
+      {%- if target.name == "qa"  -%} test_raw
       {%- elif target.name == "prod"  -%} gf_raw
       {%- endif -%}
     tables:
