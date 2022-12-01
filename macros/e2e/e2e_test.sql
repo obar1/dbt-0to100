@@ -24,5 +24,9 @@
         FROM test 
         WHERE in_a = FALSE OR in_b=FALSE 
 
+    {% else %}
+        {# just pass #}
+        select * 
+        where 1=0
     {% endif %}
 {% endmacro %}
