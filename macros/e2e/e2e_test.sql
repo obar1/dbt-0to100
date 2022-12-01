@@ -1,5 +1,5 @@
 {% macro e2e_test(table_name) %} 
-    {% if target.name | trim | lower == 'qa' %}
+    {% if var("source_for_gf_raw") | trim | lower == var("source_for_test_data") %}
     
         WITH test AS ( 
             {% set expected_cases %}
@@ -25,8 +25,10 @@
         WHERE in_a = FALSE OR in_b=FALSE 
 
     {% else %}
+
         {# just pass #}
         select * 
         where 1=0
+
     {% endif %}
 {% endmacro %}
