@@ -1,5 +1,5 @@
 {% macro e2e_test(table_name) %} 
-    {% if target.name != 'gf' %}
+    {% if target.name | trim | lower == 'qa' %}
     
         WITH test AS ( 
             {% set expected_cases %}
