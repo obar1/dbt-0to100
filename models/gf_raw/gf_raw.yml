@@ -2,7 +2,7 @@ version: 2
 sources:
   - name: gf_raw
     schema: |
-      {%- if use_seeds_for_gf_raw  | trim  | upper == "TRUE"  -%} test_data
+      {%- if var('use_seeds_for_gf_raw') | trim | upper == "TRUE"  -%} test_data
       {%- elif target.name == "qa"  -%} test_data
       {%- elif target.name == "prod"  -%} gf_raw
       {%- else -%} _ERROR_
