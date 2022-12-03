@@ -35,6 +35,7 @@ models:
   gf_dwh:
     # Applies to all files under models/
     +materialized: view
+    +quote: true
 
 
 # Define variables here
