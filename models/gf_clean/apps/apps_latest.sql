@@ -1,4 +1,4 @@
 {{ config(materialized="table", schema="clean") }}
 
 select * 
-FROM {{ source('gf_raw', 'apps')}}
+FROM {{ source('GW_RAW', 'APPS')}}
