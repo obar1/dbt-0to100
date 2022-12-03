@@ -35,6 +35,8 @@ models:
   gf_dwh:
     # Applies to all files under models/
     +materialized: view
+    gf_raw:
+      quote: true
     gf_clean:
       quote: true
     gf_data_blocks:
