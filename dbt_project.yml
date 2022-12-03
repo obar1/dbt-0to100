@@ -33,7 +33,7 @@ clean-targets:         # directories to be removed by `dbt clean`
 # using the `{{ config(...) }}` macro.
 models:
   gf_dwh:
-    # Applies to all files under models/
+    +database: ANALYTICS
     +materialized: view
     gf_raw:
       quote: true
