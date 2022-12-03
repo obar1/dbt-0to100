@@ -35,8 +35,10 @@ models:
   gf_dwh:
     # Applies to all files under models/
     +materialized: view
-    +quote: true
-
+    gf_clean:
+      quote: true
+    gf_data_blocks:
+      quote: true
 
 # Define variables here
 vars:
