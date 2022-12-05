@@ -1,5 +1,5 @@
-{{ config(materialized="table", schema="data_blocks", tags="pg") }}
+{{ config(materialized="table", schema="data_blocks") }}
 
 -- some bl
-select  upper(id) as id
+select  *
 from {{ ref('alternativeto_historical') }}    
