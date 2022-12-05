@@ -47,5 +47,5 @@ vars:
   companies_filter_list: ''
   domains_filter_list: ''
   limit_rows: ''
-  source_for_gf_raw: 'gf_raw'
-  source_for_test_data: 'test_data'
+  source_gf_raw_for_dev: 'test_data'
+  source_gf_raw_for_qa: 'test_data'
