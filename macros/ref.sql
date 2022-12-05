@@ -3,7 +3,7 @@
 {%- set rel = builtins.ref(model_name) -%}
 {%- if rel.identifier.lower().startswith('raw_') -%}
 
-    {{ log("LOG: rel " ~ rel ~ " target.name " ~ target.name , info=true) }}
+    {{ log("LOG: rel " ~ rel  , info=true) }}
 
     {%- if target.name == "gf" -%}
     {# prod env #}
@@ -12,7 +12,7 @@
         schema=target.schema ~ '_raw',
         identifier=rel.identifier,
     ) -%}
-    {{ log("LOG: new_rel " ~ new_rel, info=true) }}
+    {{ log("LOG: new_rel " ~ new_rel ~ " target.name " ~ target.name, info=true) }}
     {% do return(new_rel) %}
 
     {%- elif target.name == "qa" -%}
@@ -22,7 +22,7 @@
         schema=target.schema ~ '_test_data',
         identifier='qa_' ~ rel.identifier,
     ) -%}
-    {{ log("LOG: new_rel " ~ new_rel, info=true) }}
+    {{ log("LOG: new_rel " ~ new_rel ~ " target.name " ~ target.name, info=true) }}
     {% do return(new_rel) %}
 
     {%- elif var("source_gf_raw_for_dev") | trim | lower == 'test_data' -%}
@@ -32,7 +32,7 @@
         schema=target.schema ~ '_test_data',
         identifier='qa_' ~ rel.identifier,
     ) -%}
-    {{ log("LOG: new_rel " ~ new_rel, info=true) }}
+    {{ log("LOG: new_rel " ~ new_rel ~ " source_gf_raw_for_dev " ~ var("source_gf_raw_for_dev"), info=true) }}
     {% do return(new_rel) %}
 
     {%- elif var("source_gf_raw_for_dev") | trim | lower == 'gf_raw' -%}
@@ -42,9 +42,14 @@
         schema='gf_raw',
         identifier=rel.identifier,
     ) -%}
-    {%- endif -%}
-    {{ log("LOG: new_rel " ~ new_rel, info=true) }}
+    {{ log("LOG: new_rel " ~ new_rel ~ " source_gf_raw_for_dev " ~ var("source_gf_raw_for_dev"), info=true) }}
     {% do return(new_rel) %}
+
+    {%- else -%}
+        {% if execute %}
+            {{ exceptions.raise_compiler_error("Check the code...") }}
+        {% endif %}
+    {%- endif -%}
 
 {% else %}
     {% do return(rel) %}
