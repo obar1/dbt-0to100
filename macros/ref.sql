@@ -3,6 +3,8 @@
 {%- set rel = builtins.ref(model_name) -%}
 {%- if rel.identifier.lower().startswith('raw_') -%}
 
+    {{ log("LOG: rel " ~ rel, info=true) }}
+
     {%- if target.name == "gf" -%}
     {# prod env #}
     {%- set new_rel = adapter.get_relation(
