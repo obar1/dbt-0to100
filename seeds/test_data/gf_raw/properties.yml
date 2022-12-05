@@ -1,0 +1,12 @@
+version: 2
+# TODO: update csv def
+seeds:
+  - name: qa_raw_alternativeto
+    config:
+      enabled: "{{ target.name != 'gf' }}"
+      quote_columns: true
+      schema: "{{ var('source_gf_raw_for_qa') }}"
+      column_types:
+        snapshot_time: timestamptz
+        source: varchar
+        version: integer
